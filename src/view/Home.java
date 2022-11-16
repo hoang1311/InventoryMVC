@@ -56,7 +56,7 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("Employee");
+        jButton4.setText("Supplier");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -135,7 +135,7 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        new Employee().setVisible(true);
+        new Supplier().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
