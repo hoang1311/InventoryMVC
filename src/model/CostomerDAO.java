@@ -31,7 +31,7 @@ public class CostomerDAO {
     }
     public ArrayList<CostomerModel> getCostomerList() {
         
-       String query ="select * from costomer";
+       String query ="select * from customer";
       ArrayList<CostomerModel> pr = new ArrayList<>();
         try {
             st = con.createStatement();
@@ -49,7 +49,7 @@ public class CostomerDAO {
 
     public void updateCostomer(String id, String name, int phone) {
         
-             String query = "update costomer set Name='" +name + "' , Phone ='" + phone + "'  where ID='" + id + "'";
+             String query = "update customer set Name='" +name + "' , Phone ='" + phone + "'  where ID='" + id + "'";
    
      try {
              st.executeUpdate(query);
@@ -60,7 +60,7 @@ public class CostomerDAO {
             }
 
     public void deleteCostomer(String id) {
-                String query = "delete from costomer where ID = '"+id+"'";
+                String query = "delete from customer where ID = '"+id+"'";
         try {
              st.executeUpdate(query);
              
@@ -69,8 +69,8 @@ public class CostomerDAO {
         }
     }
 
-    public void addNewProduct(String id, String name, int phone) {
-         String query = "insert into costomer (ID, Name, Phone) values ('"+id+"','"+name+"','"+phone+"')";
+    public void addNewCustomer(String id, String name, int phone) {
+         String query = "insert into customer (ID, Name, Phone) values ('"+id+"','"+name+"','"+phone+"')";
         try {
              st.executeUpdate(query);
              

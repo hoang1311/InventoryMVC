@@ -131,7 +131,7 @@ public class Login extends javax.swing.JFrame {
         try {
             con = DriverManager.getConnection(connect);
             st = con.createStatement();
-            String query = "select * from employee where UserName= '"+username+"' and Password='"+password+"' ";
+            String query = "select * from employee where username= '"+username+"' and password='"+password+"' ";
             sr = st.executeQuery(query);
             
             if(sr.next()){

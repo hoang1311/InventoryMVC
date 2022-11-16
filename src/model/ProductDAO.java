@@ -38,7 +38,7 @@ public class ProductDAO {
             st = con.createStatement();
            sr= st.executeQuery(query); 
            while( sr.next()){
-               ProductModel model = new ProductModel(sr.getString("ID"), sr.getString("Name"), sr.getInt("Quantity"), sr.getString("CategoryName"));
+               ProductModel model = new ProductModel(sr.getString("id"), sr.getString("name"), sr.getInt("quantity"), sr.getString("category"), sr.getInt("price"));
                pr.add(model);        
            }
         } catch (SQLException e) {
@@ -48,12 +48,12 @@ public class ProductDAO {
         return  pr;
     }    
     
-    public  void addNewProduct(String id, String name, int quantity, String cat) {
+    public  void addNewProduct(String id, String name, int quantity, String cat , int price) {
         
-        String query = "insert into product (ID , Name , CategoryName , Quantity) values ('"+id+"','"+name+"','"+cat+"','"+quantity+"')";
+        String query = "insert into product (id , name ,category  , quantity ,price ) values ('"+id+"','"+name+"','"+cat+"','"+quantity+"','"+price+"')";
         try {
              st.executeUpdate(query);
-             
+   
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -71,9 +71,10 @@ public class ProductDAO {
         }
     }
 
-    public void updateProduct(String id, String name, int qty, String cat) {
-          String query = "update product set Name='" +name + "' , categoryName ='" + cat + "',quantity =" +qty + "  where id='" + id + "'";
-   
+    public void updateProduct(String id, String name, int qty, String cat , int price) {
+          String query = "update product set name='" +name + "' , price ='" + price + "' , category ='" + cat + "',quantity =" +qty + "  where id='" + id + "'";
+    
+          System.err.println(query);
      try {
              st.executeUpdate(query);
              

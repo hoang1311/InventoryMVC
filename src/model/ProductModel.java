@@ -13,13 +13,26 @@ public class ProductModel {
     private  String name;
     private int quantity;
     private String category;
+    private int price;
 
-    public ProductModel(String id, String name, int quantity, String category) {
+    public ProductModel(String id, String name, int quantity, String category, int price) {
         this.id = id;
         this.name = name;
         this.quantity = quantity;
         this.category = category;
+        this.price = price;
     }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    
+  
 
     public String getId() {
         return id;

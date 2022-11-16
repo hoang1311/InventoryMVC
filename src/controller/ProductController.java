@@ -24,15 +24,15 @@ public class ProductController {
        
     } 
 
-    public void addproduct(String id , String name , int quantity , String cat) {
-        dao.addNewProduct(id, name, quantity, cat);
+    public void addproduct(String id , String name , int quantity , String cat, int price) {
+        dao.addNewProduct(id, name, quantity, cat, price);
     }
 
     public void deleteProduct(String id) {
        dao.deleteProduct(id);
     }
 
-    public void updateProduct(String id, String name, int qty, String cat ) {
-       dao.updateProduct(id ,name , qty , cat);
+    public void updateProduct(String id, String name, int qty, String cat , int price ) {
+       dao.updateProduct(id ,name , qty , cat ,  price);
     }
 }

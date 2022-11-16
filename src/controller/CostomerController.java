@@ -32,7 +32,7 @@ public class CostomerController {
     }
 
     public void addCostomer(String id, String name, int phone) {
-         dao.addNewProduct(id, name, phone);
+         dao.addNewCustomer(id, name, phone);
     }
 
    
