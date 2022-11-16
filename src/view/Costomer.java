@@ -99,6 +99,12 @@ public final class Costomer extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(costomerTable);
 
+        CostPhone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CostPhoneActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -247,6 +253,10 @@ public final class Costomer extends javax.swing.JFrame {
         new Home().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void CostPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CostPhoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CostPhoneActionPerformed
 
     /**
      * @param args the command line arguments

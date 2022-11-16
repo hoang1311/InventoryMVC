@@ -3,23 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/model/ProductModel.java</file>
+            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/controller/SupControler.java</file>
+            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/model/SupModel.java</file>
             <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/view/Home.java</file>
             <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/model/ProductDAO.java</file>
-            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/controller/CategoryController.java</file>
-            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/controller/EmployeeController.java</file>
-            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/view/Login.java</file>
-            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/model/EmployeeDAO.java</file>
-            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/model/CategoryDAO.java</file>
-            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/view/Category.java</file>
-            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/controller/ProductController.java</file>
-            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/model/urlDb.java</file>
-            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/view/Costomer.java</file>
-            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/controller/CostomerController.java</file>
-            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/model/ProductModel.java</file>
-            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/view/Employee.java</file>
             <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/view/Product.java</file>
-            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/model/EmployeeModel.java</file>
-            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/model/CostomerDAO.java</file>
+            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/view/Login.java</file>
+            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/model/SupDAO.java</file>
+            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/controller/ProductController.java</file>
+            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/view/Supplier.java</file>
+            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/view/Costomer.java</file>
         </group>
     </open-files>
 </project-private>
