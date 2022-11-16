@@ -17,10 +17,10 @@ public class urlDb {
 
     public urlDb() {
         port = 8081;
-        serverName = "HUYHOANG\\SQLEXPRESS";
-        db= "QLBH";
+        serverName = "LAPTOP-HA4J8OLV\\SQLEXPRESS01";
+        db= "Inventory";
         user= "sa";
-        password = "131102";
+        password = "123456";
         
     }
  

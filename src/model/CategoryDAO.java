@@ -40,7 +40,7 @@ public class CategoryDAO {
             st = con.createStatement();
             sr= st.executeQuery(query); 
            while( sr.next()){
-               CategoryModel model = new CategoryModel(sr.getString("ID"), sr.getString("Name"));
+               CategoryModel model = new CategoryModel(sr.getString("id"), sr.getString("name"));
                cat.add(model);        
            }
           
@@ -52,7 +52,7 @@ public class CategoryDAO {
     }  
 
     public void addCategory(String id, String name) {
-        String query = "insert into category (ID , Name ) values ('"+id+"','"+name+"')";
+        String query = "insert into category (id , name ) values ('"+id+"','"+name+"')";
         try {
              st.executeUpdate(query);
              
