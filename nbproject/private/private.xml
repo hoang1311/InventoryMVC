@@ -3,17 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/model/ProductModel.java</file>
-            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/controller/SupControler.java</file>
-            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/model/SupModel.java</file>
-            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/view/Home.java</file>
-            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/model/ProductDAO.java</file>
-            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/view/Product.java</file>
-            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/view/Login.java</file>
-            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/model/SupDAO.java</file>
-            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/controller/ProductController.java</file>
-            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/view/Supplier.java</file>
-            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/view/Costomer.java</file>
+            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/view/HoaDonNhap.java</file>
+            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/model/HDXModel.java</file>
+            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/controller/HDNController.java</file>
+            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/model/HDNDao.java</file>
+            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/view/HoaDonXuat.java</file>
+            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/model/HDXDao.java</file>
+            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/model/HDNModel.java</file>
+            <file>file:/C:/Users/hi/Desktop/New%20folder/InventoryMVC/src/controller/HDXContoller.java</file>
         </group>
     </open-files>
 </project-private>
