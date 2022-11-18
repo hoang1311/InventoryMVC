@@ -6,6 +6,7 @@ package controller;
 
 import java.util.ArrayList;
 import model.HDNDao;
+import model.HDNIfo;
 import model.HDNModel;
 
 /**
@@ -29,6 +30,10 @@ public class HDNController {
     public void deleteIv( String id)  {
               dao.delete(id);
           
+    }
+
+    public void addHDN(ArrayList<HDNIfo> buy, HDNModel y) {
+        dao.addnewHDN(buy , y);
     }
         
     

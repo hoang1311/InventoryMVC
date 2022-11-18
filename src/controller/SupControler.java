@@ -37,4 +37,6 @@ public class SupControler {
      public void delSup( String id) {
         dao.delete(id );
     }
+
+ 
 }

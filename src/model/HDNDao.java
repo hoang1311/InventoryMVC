@@ -40,7 +40,7 @@ public class HDNDao {
             st = con.createStatement();
            sr= st.executeQuery(query); 
            while( sr.next()){
-               HDNModel model = new HDNModel(sr.getString("id") , sr.getString("supplierId") ,  sr.getDate("createdAt"));
+               HDNModel model = new HDNModel(sr.getString("id") , sr.getString("supplierId") ,  sr.getString("createdAt"));
                iv.add(model);        
            }
         } catch (SQLException e) {
@@ -62,9 +62,32 @@ public class HDNDao {
            e.printStackTrace();
         }
     }
-    
-    
-    
-    
+
+    public void addnewHDN(ArrayList<HDNIfo> buy, HDNModel y) {
+        String query  = "insert into hoadonnhap(id ,supplierId , createdAt) values('"+y.getId()+"' ,'"+y.getSupId()+"' ,'"+y.getDate()+"')";
+        
+        try {
+             st = con.createStatement();
+           st.execute(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        for (HDNIfo x : buy) {
+            String query2  = "insert into chitiethoadonnhap(id ,invoiceId , productId ,amount) values('"+x.getId()+"' ,'"+x.getIvId()+"' ,'"+x.getPrId()+"',"+x.getAmount()+")";
+            System.err.println(query2);
+            try {
+               
+                st.execute(query2);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+           
+            
+        }
+              
+       
+        
+        
+    } 
     
 }

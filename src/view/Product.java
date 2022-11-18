@@ -137,6 +137,12 @@ public final class Product extends javax.swing.JFrame {
             }
         });
 
+        category.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                categoryActionPerformed(evt);
+            }
+        });
+
         jButton5.setText("Find by ID");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -347,6 +353,10 @@ public final class Product extends javax.swing.JFrame {
     private void ProIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProIdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ProIdActionPerformed
+
+    private void categoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_categoryActionPerformed
 
     /**
      * @param args the command line arguments
