@@ -14,15 +14,15 @@ public class HDNModel {
     
     private String id;
     private String SupId;
-    private  Date date;
+    private  String date;
 
     public HDNModel(String SupId) {
         this.SupId = SupId;
         id  = Math.random()*1000+"HDN";
-        date = new  Date();
+        date = new  Date().toString();
     }
 
-    public HDNModel(String id, String SupId, Date date) {
+    public HDNModel(String id, String SupId, String date) {
         this.id = id;
         this.SupId = SupId;
         this.date = date;
@@ -44,11 +44,11 @@ public class HDNModel {
         this.SupId = SupId;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

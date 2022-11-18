@@ -20,7 +20,7 @@ import model.SupModel;
 public class Supplier extends javax.swing.JFrame {
 
     
-    private  SupControler supCtrl = new SupControler();
+    private final  SupControler supCtrl = new SupControler();
     /**
      * Creates new form Supplier
      */
@@ -239,13 +239,18 @@ public class Supplier extends javax.swing.JFrame {
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        if(SupName.getText().trim().length() >0 && Integer.parseInt(SupPhone.getText())>0 && SupPhone.getText().trim().length()<=11 && SupPhone.getText().trim().length()>=9 ){
+        try {
+            if(SupName.getText().trim().length() >0 && Integer.parseInt(SupPhone.getText())>0 && SupPhone.getText().trim().length()<=11 && SupPhone.getText().trim().length()>=9 ){
           supCtrl.addSup(SupName.getText(), Integer.parseInt(SupPhone.getText()));
           new Supplier().setVisible(true);
           this.dispose();
         }else{
             JOptionPane.showMessageDialog(this, "Invalid field");
         }
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+        
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -268,6 +273,7 @@ public class Supplier extends javax.swing.JFrame {
          int index = SupTable.getSelectedRow();
         TableModel moldel = SupTable.getModel();
         String value3 = moldel.getValueAt(index, 0).toString();
+        try{
          if(SupName.getText().trim().length() >0 && Integer.parseInt(SupPhone.getText())>0 && SupPhone.getText().trim().length()<=11 && SupPhone.getText().trim().length()>=9 ){
           supCtrl.updateSup(SupName.getText(), Integer.parseInt(SupPhone.getText()) , value3);
           JOptionPane.showMessageDialog(this , "Updated");
@@ -275,6 +281,8 @@ public class Supplier extends javax.swing.JFrame {
           this.dispose();
         }else{
             JOptionPane.showMessageDialog(this, "Invalid field");
+        }}catch(NumberFormatException e){
+        e.printStackTrace();
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
