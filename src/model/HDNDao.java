@@ -74,7 +74,7 @@ public class HDNDao {
         }
         for (HDNIfo x : buy) {
             String query2  = "insert into chitiethoadonnhap(id ,invoiceId , productId ,amount) values('"+x.getId()+"' ,'"+x.getIvId()+"' ,'"+x.getPrId()+"',"+x.getAmount()+")";
-            System.err.println(query2);
+           
             try {
                
                 st.execute(query2);

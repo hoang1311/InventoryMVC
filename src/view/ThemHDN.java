@@ -7,6 +7,7 @@ package view;
 import controller.HDNController;
 import controller.ProductController;
 import controller.SupControler;
+import java.awt.event.ComponentListener;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -19,7 +20,7 @@ import model.SupModel;
  *
  * @author hi
  */
-public class ThemHDN extends javax.swing.JFrame {
+public final class ThemHDN extends javax.swing.JFrame {
         private final ProductController productCtrl = new ProductController();
         private final  SupControler supCtrl = new SupControler();
         ArrayList<HDNIfo> buy = new ArrayList<>();
@@ -33,6 +34,7 @@ public class ThemHDN extends javax.swing.JFrame {
         initComponents();
    showProduct();
    showSup();
+   
  
     }
 
@@ -140,6 +142,16 @@ public class ThemHDN extends javax.swing.JFrame {
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+        });
+        buyTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buyTableMouseClicked(evt);
+            }
+        });
+        buyTable.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                buyTablePropertyChange(evt);
             }
         });
         jScrollPane2.setViewportView(buyTable);
@@ -308,6 +320,7 @@ public class ThemHDN extends javax.swing.JFrame {
         String id = prTable.getValueAt(index, 0).toString();
         String name = prTable.getValueAt(index, 1).toString(); 
         String category = prTable.getValueAt(index, 2).toString();  
+        
         int price =Integer.parseInt(prTable.getValueAt(index, 3).toString());
         DefaultTableModel model = (DefaultTableModel) buyTable.getModel(); 
         Object[] row = {id, name,0,category, price};
@@ -321,7 +334,7 @@ public class ThemHDN extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:             
-       
+        
         int[] index = buyTable.getSelectedRows();
         int supindex = SupTable.getSelectedRow();
         DefaultTableModel model = (DefaultTableModel)buyTable.getModel();
@@ -348,9 +361,24 @@ public class ThemHDN extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+ 
     private void SupTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SupTableMouseClicked
         // TODO add your handling code here:
+        
+        
     }//GEN-LAST:event_SupTableMouseClicked
+
+    private void buyTablePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_buyTablePropertyChange
+        // TODO add your handling code here:
+               
+                
+    }//GEN-LAST:event_buyTablePropertyChange
+
+    private void buyTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buyTableMouseClicked
+     
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_buyTableMouseClicked
 
     
     
