@@ -267,6 +267,7 @@ public final class Product extends javax.swing.JFrame {
         ArrayList<ProductModel> pr = productCtrl.showProduct();
         DefaultTableModel model = (DefaultTableModel) productTable.getModel();
         for (ProductModel pro : pr) {
+            
             Object[] row = {pro.getId(), pro.getName(), pro.getQuantity(), pro.getCategory() , pro.getPrice()};
             model.addRow(row);
         }

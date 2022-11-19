@@ -3,7 +3,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
-
+import com.microsoft.sqlserver.jdbc.SQLServerException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.urlDb;
 
 
 /**
@@ -11,15 +21,25 @@ package view;
  * @author hi
  */
 public class ChiTietHDN extends javax.swing.JFrame {
-
-
+   
     /**
      * Creates new form showInvoice
+     * 
      */
-    public ChiTietHDN() {
+    Connection con = null;
+    Statement st = null;
+    ResultSet sr = null;
+    public static String id;
+
+
+    public ChiTietHDN(String text) {
+        id=text;    
         initComponents();
-        
+        showTable(text);
+      
     }
+
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -34,14 +54,14 @@ public class ChiTietHDN extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        Id = new javax.swing.JTextField();
+        SupName = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        ProTable = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
@@ -104,11 +124,11 @@ public class ChiTietHDN extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Id, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(188, 188, 188)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(SupName, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -117,8 +137,8 @@ public class ChiTietHDN extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SupName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
                 .addGap(31, 31, 31)
@@ -126,12 +146,9 @@ public class ChiTietHDN extends javax.swing.JFrame {
                 .addGap(272, 272, 272))
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        ProTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "id", "name", "price", "quantity"
@@ -145,7 +162,7 @@ public class ChiTietHDN extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(ProTable);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -208,6 +225,37 @@ public class ChiTietHDN extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private  void showTable(String id){
+    urlDb db = new urlDb();
+    String url = db.getUrl();
+    
+    String query = "select supplier.name ,"
+            + " hoadonnhap.id, product.id as prId "
+            + ", product.name as product , chitiethoadonnhap.amount "
+            + " , product.price from hoadonnhap \n" +
+"join  chitiethoadonnhap on chitiethoadonnhap.invoiceId = hoadonnhap.id\n" +
+"join product on product.id = chitiethoadonnhap.productId \n" +
+"join supplier on hoadonnhap.supplierId = supplier.id where hoadonnhap.id = '"+id+"'";
+        try {
+            con = DriverManager.getConnection(url);
+            System.err.println("SOS");
+            st = con.createStatement();
+            sr = st.executeQuery(query);
+            DefaultTableModel model = (DefaultTableModel) ProTable.getModel();
+
+            while (sr.next()) {   
+                Id.setText(sr.getString("id"));
+                SupName.setText(sr.getString("name"));
+                Object[] row = {sr.getString("prId") , sr.getString("product") , sr.getInt("price") , sr.getInt("amount") };
+                model.addRow(row);
+            }
+            
+            
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -238,13 +286,18 @@ public class ChiTietHDN extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            
             public void run() {
-                new ChiTietHDN().setVisible(true);
+                
+                new ChiTietHDN(id).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Id;
+    private javax.swing.JTable ProTable;
+    private javax.swing.JTextField SupName;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -256,8 +309,5 @@ public class ChiTietHDN extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
