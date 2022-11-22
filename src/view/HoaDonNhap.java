@@ -5,12 +5,10 @@
 package view;
 
 import controller.HDNController;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.HDNModel;
-import model.ProductModel;
 
 /**
  *

@@ -109,6 +109,9 @@ insert into chitiethoadonnhap(id , invoiceId , productId, amount) values (
 )
 
 select * from hoadonnhap
+select supplier.name , hoadonnhap.id, product.id as prId , product.name as product , chitiethoadonnhap.amount  , product.price from hoadonnhap join  chitiethoadonnhap on chitiethoadonnhap.invoiceId = hoadonnhap.id join product on product.id = chitiethoadonnhap.productId join supplier on hoadonnhap.supplierId = supplier.id where hoadonnhap.id = '66.3043703460029HDN'
 
-delete from hoadonxuat join chitiethoadonxuat on  chitiethoadonxuat.invoiceId = hoadonxuat.id
-where hoadonxuat.id='BZL10'
+select supplier.name , hoadonnhap.id, product.id as prId , product.name as product , chitiethoadonnhap.amount  , product.price from hoadonnhap 
+join  chitiethoadonnhap on chitiethoadonnhap.invoiceId = hoadonnhap.id
+join product on product.id = chitiethoadonnhap.productId 
+join supplier on hoadonnhap.supplierId = supplier.id where hoadonnhap.id = '66.3043703460029HDN'
