@@ -5,8 +5,10 @@
 package controller;
 
 import java.util.ArrayList;
+import model.HDNIfo;
 import model.HDNModel;
 import model.HDXDao;
+import model.HDXIfo;
 import model.HDXModel;
 
 /**
@@ -28,5 +30,8 @@ public class HDXContoller {
 
     public void deleteIv( String id)  {
               dao.delete(id); 
+    }
+       public void addHDX(ArrayList<HDXIfo> buy, HDXModel y) {
+        dao.addnewHDX(buy, y);
     }
 }

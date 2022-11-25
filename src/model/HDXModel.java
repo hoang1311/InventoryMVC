@@ -4,6 +4,7 @@
  */
 package model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -13,18 +14,23 @@ import java.util.Date;
 public class HDXModel {
     private  String id;
     private String CusId ;
-    private  Date date;
+     private  String date;
+    private  boolean  status;
 
-    public HDXModel(String id, String CusId, Date date) {
+    public HDXModel(String id, String CusId, String date , boolean  status) {
         this.id = id;
         this.CusId = CusId;
-        this.date = date;
+         this.date = date;
+        this.status= status;
     }
 
     public HDXModel(String CusId) {
         id = Math.random()*3000+"HDX";
         this.CusId = CusId;
-        date = new Date();
+         Date date1 = new Date();
+        String mmddyyyy1 = new SimpleDateFormat("MM-dd-yyyy").format(date1);
+        this.date =  mmddyyyy1;
+        this.status = true;
     }
 
     public String getId() {
@@ -43,13 +49,24 @@ public class HDXModel {
         this.CusId = CusId;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
+
+    
+    
+      public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
     
     
 }
