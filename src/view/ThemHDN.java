@@ -7,7 +7,6 @@ package view;
 import controller.HDNController;
 import controller.ProductController;
 import controller.SupControler;
-import java.awt.event.ComponentListener;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -182,7 +181,7 @@ public final class ThemHDN extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Export");
+        jButton2.setText("Back");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -311,12 +310,14 @@ public final class ThemHDN extends javax.swing.JFrame {
   
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        new HoaDonNhap().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void prTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prTableMouseClicked
         // TODO add your handling code here:
         try {
-            int index= prTable.getSelectedRow();
+        int index= prTable.getSelectedRow();
         String id = prTable.getValueAt(index, 0).toString();
         String name = prTable.getValueAt(index, 1).toString(); 
         String category = prTable.getValueAt(index, 2).toString();  

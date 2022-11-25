@@ -4,6 +4,7 @@
  */
 package model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -15,17 +16,30 @@ public class HDNModel {
     private String id;
     private String SupId;
     private  String date;
+    private  boolean  status;
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
 
     public HDNModel(String SupId) {
         this.SupId = SupId;
         id  = Math.random()*1000+"HDN";
-        date = new  Date().toString();
+        Date date1 = new Date();
+        String mmddyyyy1 = new SimpleDateFormat("MM-dd-yyyy").format(date1);
+        this.date =  mmddyyyy1;
+        this.status = true;
     }
 
-    public HDNModel(String id, String SupId, String date) {
+    public HDNModel(String id, String SupId, String date , boolean  status) {
         this.id = id;
         this.SupId = SupId;
         this.date = date;
+        this.status= status;
     }
 
     public String getId() {

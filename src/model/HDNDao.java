@@ -34,13 +34,13 @@ public class HDNDao {
     }
 
     public ArrayList<HDNModel> getAllHDN() {
-     String query ="select * from hoadonnhap";
+     String query ="select * from hoadonnhap where status = 1";
       ArrayList<HDNModel> iv = new ArrayList<>();
         try {
             st = con.createStatement();
            sr= st.executeQuery(query); 
            while( sr.next()){
-               HDNModel model = new HDNModel(sr.getString("id") , sr.getString("supplierId") ,  sr.getString("createdAt"));
+               HDNModel model = new HDNModel(sr.getString("id") , sr.getString("supplierId") ,  sr.getDate("createdAt").toString(),sr.getBoolean("status"));
                iv.add(model);        
            }
         } catch (SQLException e) {
@@ -50,13 +50,12 @@ public class HDNDao {
         return  iv;
     }
 
-    public void delete(String id)  {
-        
-         String query = "delete from chitiethoadonnhap where invoiceId= ? ; delete from hoadonnhap  where id= ?";
-        try {
+    public void delete(String id)  {                 
+        String query = "update hoadonnhap set status = 0 where id = ?";
+                 try {
             PreparedStatement pre = con.prepareStatement(query);
             pre.setString(1, id);
-            pre.setString(2, id);
+           
             pre.executeUpdate();
         } catch (SQLException e)  {
            e.printStackTrace();
@@ -74,7 +73,7 @@ public class HDNDao {
         }
         for (HDNIfo x : buy) {
             String query2  = "insert into chitiethoadonnhap(id ,invoiceId , productId ,amount) values('"+x.getId()+"' ,'"+x.getIvId()+"' ,'"+x.getPrId()+"',"+x.getAmount()+")";
-           
+
             try {
                
                 st.execute(query2);
@@ -84,10 +83,7 @@ public class HDNDao {
            
             
         }
-              
-       
-        
-        
+               
     } 
     
 }
